@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../app/store.ts';
-import { addNumber, checkPassword, deleteNumber } from './numpadSlice.ts';
+import { addNumber, checkPassword, deleteNumber, resetInput } from './numpadSlice.ts';
 import './Numpad.css'
 
 const Numpad = () => {
@@ -21,6 +21,10 @@ const Numpad = () => {
     dispatch(checkPassword());
   };
 
+  const inputReset = () => {
+    dispatch(resetInput())
+  };
+
 
   return (
     <div className="numpad">
@@ -38,9 +42,10 @@ const Numpad = () => {
           </button>
         ))}
       </div>
-      <div className="clear_enter_btns">
-        <button className="btn clear" onClick={numberClear}>X</button>
-        <button className="btn enter" onClick={numberEnter}>E</button>
+      <div className="clear_enter_reset_btns">
+        <button type={"button"} className="btn clear" onClick={numberClear}>X</button>
+        <button type={"button"} className="btn enter" onClick={numberEnter}>E</button>
+        <button type={"button"} className="btn reset" onClick={inputReset}>Reset</button>
       </div>
     </div>
   );

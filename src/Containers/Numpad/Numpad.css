@@ -52,6 +52,9 @@
 
 .number {
   border: none;
+  &:hover {
+    background: #b9b9b9;
+  }
 }
 
 
@@ -62,15 +65,15 @@
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
-.clear_enter_btns {
+.clear_enter_reset_btns {
   display: flex;
   gap: 10px;
   position: absolute;
   bottom: 20px;
-  margin-left: 70px;
+  margin-left: 142px;
 }
 
 .clear {
@@ -89,6 +92,15 @@
   border: none;
   &:hover {
     background-color: #45a049;
+  }
+}
+
+.reset {
+  background-color: #314cef;
+  color: white;
+  border: none;
+  &:hover {
+    background-color: #0027ff;
   }
 }
 

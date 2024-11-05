@@ -26,10 +26,14 @@ const numpadSlice = createSlice({
     },
     checkPassword: (state) => {
       state.accessGranted = state.input === correctPassword;
+    },
+    resetInput: (state) => {
+      state.input = '';
+      state.accessGranted = null;
     }
 
   }
 });
 
-export const {addNumber, deleteNumber, checkPassword} = numpadSlice.actions;
+export const {addNumber, deleteNumber, checkPassword, resetInput} = numpadSlice.actions;
 export default numpadSlice.reducer;
