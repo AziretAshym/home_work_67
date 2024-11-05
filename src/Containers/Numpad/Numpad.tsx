@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../app/store.ts';
 import { addNumber, checkPassword, deleteNumber } from './numpadSlice.ts';
+import './Numpad.css'
 
 const Numpad = () => {
   const input = useSelector((state: RootState) => state.numpad.input);
@@ -22,8 +23,8 @@ const Numpad = () => {
 
 
   return (
-    <>
-      <div className="input">
+    <div className="numpad">
+      <div className={`input ${accessGranted === true ? 'success' : accessGranted === false ? 'error' : ''}`}>
         {input.replace(/./g, '*')}
       </div>
       <div className="message">
@@ -32,14 +33,16 @@ const Numpad = () => {
       </div>
       <div className="numbers">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((num) => (
-          <button className="number" key={num} onClick={() => numberClick(num.toString())}>
+          <button className="btn number" key={num} onClick={() => numberClick(num.toString())}>
             {num}
           </button>
         ))}
       </div>
-      <button className="btn cleare" onClick={numberClear}>X</button>
-      <button className="btn enter" onClick={numberEnter}>E</button>
-    </>
+      <div className="clear_enter_btns">
+        <button className="btn clear" onClick={numberClear}>X</button>
+        <button className="btn enter" onClick={numberEnter}>E</button>
+      </div>
+    </div>
   );
 };
 
